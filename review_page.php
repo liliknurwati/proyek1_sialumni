@@ -6,14 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Data Admin SI ALumni JTI</title>
+        <title>Review SI ALumni JTI</title>
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">ADMIN SI ALUMNI</a>
+            <a class="navbar-brand" href="index.html">Review SI ALUMNI</a>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div class="input-group">
@@ -76,9 +76,9 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Data Admin</h1>
+                        <h1 class="mt-4">Review Alumni</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Data Admin</li>
+                            <li class="breadcrumb-item active">Review Alumni</li>
                         </ol>
                         
                     </div>

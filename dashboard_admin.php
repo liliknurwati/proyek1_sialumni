@@ -41,31 +41,31 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="dashboard_admin.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="alumni_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-database"></i></div>
                                Data Alumni
                             </a>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="hasilSurvei_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-poll-h"></i></div>
                                 Hasil Survei
                             </a>
-                            <a class="nav-link" href="charts.html">
+                            <a class="nav-link" href="grafik_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Grafik Survei
                             </a>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="survei_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
                                 Survei
                             </a>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="admin_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users-cog"></i></div>
                                 Data Admin
                             </a>
-                            <a class="nav-link" href="tables.html">
+                            <a class="nav-link" href="review_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Review Alumni
                             </a>
