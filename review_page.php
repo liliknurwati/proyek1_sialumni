@@ -13,7 +13,7 @@
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">Review SI ALUMNI</a>
+            <a class="navbar-brand" href="index.html">ADMIN SI ALUMNI</a>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div class="input-group">
@@ -81,6 +81,16 @@
                             <li class="breadcrumb-item active">Review Alumni</li>
                         </ol>
                         
+                    </div>
+
+                    <div class="container">
+                    <div class="card">
+                        <h5 class="card-header">Nama ALumni JTI</h5>
+                        <div class="card-body">
+                            <p class="card-text">Isi Review</p>
+                            <a href="#" class="btn btn-primary">Beri Balasan</a>
+                        </div>
+</div>
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">

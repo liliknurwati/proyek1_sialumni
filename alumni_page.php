@@ -13,7 +13,7 @@
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">Data ALumni</a>
+            <a class="navbar-brand" href="index.html">ADMIN SI ALUMNI</a>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div class="input-group">
@@ -76,11 +76,50 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Data ALumni</h1>
+                        <h1 class="mt-4">Data Alumni</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Data ALumni</li>
+                            <li class="breadcrumb-item active">Data Alumni</li>
                         </ol>
                         
+                    </div>
+                    <div class="container">
+                        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="" method= "POST">
+                        <div class="mb-3">
+                        <input type="Number" name="numberrow" class="form-control" id="exampleInputNumber" placeholder="jumlah baris ditampilkan">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                        </form>
+
+                        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="" method= "POST">
+                        <div class="mb-3">
+                        <input type="Text" name="numberrow" class="form-control" id="exampleInputText" placeholder="cari NIM/Nama/Prodi">
+                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                        </form>
+
+                    <table class="table">
+                            <thead class="table-dark">
+                            <tr>
+                            <th width = 5%>No</th>
+                            <th width = 25%>NIM</th>
+                            <th width = 45%>Nama</th>
+                            <th width = 20%>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                <button type="button" class="btn btn-primary">Tampilkan lebih</button>
+                                </td>
+                                </tr>
+                                
+                            </tbody>
+                    </table>
+
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">

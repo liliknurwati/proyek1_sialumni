@@ -82,6 +82,36 @@
                         </ol>
                         
                     </div>
+                    <div class="container">
+                        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="" method= "POST">
+                        <div class="mb-3">
+                        <input type="Number" name="numberrow" class="form-control" id="exampleInputNumber" placeholder="jumlah baris ditampilkan">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                        </form>
+
+                    <table class="table">
+                            <thead class="table-dark">
+                            <tr>
+                            <th width = 15%>No</th>
+                            <th width = 65%>Nama</th>
+                            <th width = 20%>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                <button type="button" class="btn btn-primary">Tampilkan lebih</button>
+                                </td>
+                                </tr>
+                                
+                            </tbody>
+                    </table>
+
+                    </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
