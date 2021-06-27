@@ -81,16 +81,26 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <?php
+                            include "koneksi.php";
+                            $query = mysqli_query($conn,"SELECT * FROM t_pertanyaan ORDER BY id DESC");
+                            ?>
 
+                            <?php if(mysqli_num_rows($query)>0){ ?>
+                                    <?php
+                                        $no = 1;
+                                        while($data = mysqli_fetch_array($query)){
+                                    ?>
                             
                                 <tr>
-                                <td></td>
-                                <td> <?php echo $_POST['pertanyaan']; ?> </td>
+                                <td><?php echo $no ?></td>
+                                <td> <?php echo $data["pertanyaan"]; ?> </td>
                                 <td>
-                                <button type="button" class="btn btn-primary">Edit</button>
+                                <button type="button" class="btn btn-primary">Tampilkan</button>
                                 </td>
                                 </tr>
-                                
+                                <?php $no++; } ?>
+                                <?php } ?>
                             </tbody>
                     </table>
                 </div>
