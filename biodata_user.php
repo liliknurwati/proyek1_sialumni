@@ -80,7 +80,6 @@
                      <tr>
                      <td bgcolor=grey colspan=”2″ align=”center”><font color=white>BIODATA</td>
                     </tr>
-                    <td colspan=”2″ align=”center”><img src="#" width=10%></td>
                     <tr>
                     <td>Nama</td>
                     <td>Salma Kirana S</td>

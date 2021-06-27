@@ -101,22 +101,37 @@
                             <thead class="table-dark">
                             <tr>
                             <th width = 5%>No</th>
-                            <th width = 25%>NIM</th>
-                            <th width = 45%>Nama</th>
+                            <th width = 25%>Nama</th>
+                            <th width = 20%>Program Studi</th>
+                            <th width = 15%>Tahun Lulus</th>
+                            <th width = 15%>Asal</th>
                             <th width = 20%>Action</th>
                             </tr>
                             </thead>
                             <tbody>
+                            <?php
+                            include "koneksi.php";
+                            $query = mysqli_query($conn,"SELECT * FROM alumni ORDER BY idAlumni DESC");
+                            ?>
 
+                            <?php if(mysqli_num_rows($query)>0){ ?>
+                                    <?php
+                                        $no = 1;
+                                        while($data = mysqli_fetch_array($query)){
+                                    ?>
                                 <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><?php echo $no ?></td>
+                                <td><?php echo $data["nama_al"]; ?></td>
+                                <td><?php echo $data["prodi"]; ?></td>
+                                <td><?php echo $data["tahun_lulus"]; ?></td>
+                                <td><?php echo $data["alamat"]; ?></td>
                                 <td>
-                                <button type="button" class="btn btn-primary">Tampilkan lebih</button>
+                                <button type="button" class="btn btn-primary">Edit</button>
+                                <button type="button" class="btn btn-danger">Hapus</button>
                                 </td>
                                 </tr>
-                                
+                                <?php $no++; } ?>
+                                <?php } ?>
                             </tbody>
                     </table>
 

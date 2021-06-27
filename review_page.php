@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Review SI ALumni JTI</title>
+        <title>Review SI Alumni JTI</title>
         <link href="css/review.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
@@ -85,9 +85,9 @@
 
                     <div class="container">
                     <div class="card">
-                        <h5 class="card-header">Nama ALumni JTI</h5>
+                        <h5 class="card-header">LILIK NURWATI, 2022</h5>
                         <div class="card-body">
-                            <p class="card-text">Isi Review</p>
+                            <p class="card-text">Minta Tolong untuk memberikan password ke x Karena dia Lupa password</p>
                             <a href="#" class="btn btn-primary">Beri Balasan</a>
                         </div>
 </div>

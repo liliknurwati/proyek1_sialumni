@@ -91,11 +91,21 @@
                         </div>
                          </div>
                     <br>
+                    <?php
+                            include "koneksi.php";
+                            $query = mysqli_query($conn,"SELECT * FROM t_pertanyaan WHERE id=1");
+                            ?>
+
+                            <?php if(mysqli_num_rows($query)>0){ ?>
+                                    <?php
+                                        $no = 1;
+                                        while($data = mysqli_fetch_array($query)){
+                                    ?>
                         <div class="card">
                             
-                        <h5 class="card-header">Pertanyaan No. </h5>
+                        <h5 class="card-header">Pertanyaan No. 1</h5>
                         <div class="card-body">
-                            <p class="card-text">Teks Pertanyaan</p>
+                            <p class="card-text"><?php echo $data["pertanyaan"]; ?></p>
                         </div>
                         </div>
                         <br><br>
@@ -103,7 +113,6 @@
                         <thead class="table-dark">
                             <tr>
                                 <th width = 5%>No. </th>
-                                <th width = 15%>NIM</th>
                                 <th width = 20%>Nama</th>
                                 <th width = 40%>Jawaban</th>
                                 <th width = 20%>Action</th>
@@ -111,15 +120,16 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><?php echo $no ?></td>
+                                <td>LILIK NURWATI</td>
+                                <td>Engineer</td>
                                 <td><button type="button" class="btn btn-primary">lihat detail</button></td>
                             </tr>
                         </tbody>
                         </table>
                     </div>
+                    <?php $no++; } ?>
+                                <?php } ?>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">

@@ -13,7 +13,7 @@
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">ADMIN SI ALUMNI</a>
+            <a class="navbar-brand" href="index.html">SIALUMNI JTI POLITEKNIK NEGERI MALANG</a>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div class="input-group">
@@ -74,7 +74,9 @@
                     <div class="card">
                         <h5 class="card-header">REVIEW</h5>
                         <div class="card-body">
-                            <p class="card-text">Isi Review</p>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Tuliskan Komentarmu"></textarea>
+                        </div>
                             <button type="submit" class="btn btn-primary" style = "float: right">Submit</button>
                         </div>
 </div>
