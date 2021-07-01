@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2021 at 04:39 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
+-- Waktu pembuatan: 01 Jul 2021 pada 15.22
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -38,17 +38,16 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`idAdm`, `username_adm`, `password_adm`, `nama_adm`, `email_adm`, `nohp_adm`, `alamat`) VALUES
-(0, 'wawa', 'admin', 'syalwa', 'syalwanana123@gmail.com', '0895623452153', 'Ds. Campurdarat Tulungagung'),
 (1, 'wawa', 'admin', 'syalwa', 'syalwanana123@gmail.com', '0895623452153', 'Ds. Campurdarat Tulungagung');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `alumni`
+-- Struktur dari tabel `alumni`
 --
 
 CREATE TABLE `alumni` (
@@ -68,10 +67,18 @@ CREATE TABLE `alumni` (
   `profesi` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `alumni`
+--
+
+INSERT INTO `alumni` (`idAlumni`, `username_al`, `password_al`, `nama_al`, `nik_al`, `tempat_lahir`, `tgl_lahir`, `agama`, `no_hp`, `prodi`, `tahun_lulus`, `alamat`, `jk`, `profesi`) VALUES
+(1, 'LILIK28', '12345678', 'LILIK NURWATI', '35XXXXXXXXXXXXXX4', 'BLITAR', '2000-11-28', 'ISLAM', '08970602332', 'D3 MANAJEMEN INFORMATIKA', '2022', 'BLITAR', 'PEREMPUAN', 'SECRET AGENT'),
+(2, 'AJENG29', '12345678', 'AJENG EKA YUDIANINGRUM', '34XXXXXXXXXXXXXX2', 'BLITAR', '2001-06-29', 'ISLAM', '08888888888', 'D3 MANAJEMEN INFORMATIKA', '2022', 'BLITAR', 'PEREMPUAN', 'SECRET AGENT');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prodi`
+-- Struktur dari tabel `prodi`
 --
 
 CREATE TABLE `prodi` (
@@ -82,7 +89,19 @@ CREATE TABLE `prodi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_kuisioner`
+-- Struktur dari tabel `review`
+--
+
+CREATE TABLE `review` (
+  `idReview` int(11) NOT NULL,
+  `idAlumni` int(11) NOT NULL,
+  `review` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `t_kuisioner`
 --
 
 CREATE TABLE `t_kuisioner` (
@@ -120,7 +139,7 @@ CREATE TABLE `t_kuisioner` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_kuisioner`
+-- Dumping data untuk tabel `t_kuisioner`
 --
 
 INSERT INTO `t_kuisioner` (`id`, `responden`, `p1`, `p2`, `p3`, `p4`, `p5`, `p6`, `p7`, `p8`, `p9`, `p10`, `p11`, `p12`, `p13`, `p14`, `p15`, `p16`, `p17`, `p18`, `p19`, `p20`, `p21`, `p22`, `p23`, `p24`, `p25`, `p26`, `p27`, `p28`, `p29`) VALUES
@@ -163,7 +182,7 @@ INSERT INTO `t_kuisioner` (`id`, `responden`, `p1`, `p2`, `p3`, `p4`, `p5`, `p6`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_pertanyaan`
+-- Struktur dari tabel `t_pertanyaan`
 --
 
 CREATE TABLE `t_pertanyaan` (
@@ -176,7 +195,7 @@ CREATE TABLE `t_pertanyaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_pertanyaan`
+-- Dumping data untuk tabel `t_pertanyaan`
 --
 
 INSERT INTO `t_pertanyaan` (`id`, `pertanyaan`, `isi1`, `isi2`, `isi3`, `isi4`) VALUES
@@ -215,50 +234,91 @@ INSERT INTO `t_pertanyaan` (`id`, `pertanyaan`, `isi1`, `isi2`, `isi3`, `isi4`) 
 --
 
 --
--- Indexes for table `admin`
+-- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`idAdm`);
 
 --
--- Indexes for table `alumni`
+-- Indeks untuk tabel `alumni`
 --
 ALTER TABLE `alumni`
   ADD PRIMARY KEY (`idAlumni`);
 
 --
--- Indexes for table `prodi`
+-- Indeks untuk tabel `prodi`
 --
 ALTER TABLE `prodi`
   ADD PRIMARY KEY (`idProdi`);
 
 --
--- Indexes for table `t_kuisioner`
+-- Indeks untuk tabel `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`idReview`),
+  ADD KEY `idAlumni` (`idAlumni`);
+
+--
+-- Indeks untuk tabel `t_kuisioner`
 --
 ALTER TABLE `t_kuisioner`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `t_pertanyaan`
+-- Indeks untuk tabel `t_pertanyaan`
 --
 ALTER TABLE `t_pertanyaan`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `t_kuisioner`
+-- AUTO_INCREMENT untuk tabel `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `idAdm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `alumni`
+--
+ALTER TABLE `alumni`
+  MODIFY `idAlumni` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `prodi`
+--
+ALTER TABLE `prodi`
+  MODIFY `idProdi` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `review`
+--
+ALTER TABLE `review`
+  MODIFY `idReview` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `t_kuisioner`
 --
 ALTER TABLE `t_kuisioner`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
--- AUTO_INCREMENT for table `t_pertanyaan`
+-- AUTO_INCREMENT untuk tabel `t_pertanyaan`
 --
 ALTER TABLE `t_pertanyaan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `review`
+--
+ALTER TABLE `review`
+  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`idAlumni`) REFERENCES `alumni` (`idAlumni`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
