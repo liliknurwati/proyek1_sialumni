@@ -80,7 +80,9 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Detail Data SI ALumni</li>
                         </ol>
-                        
+                    </div>
+                    <div class="container">
+                    
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">

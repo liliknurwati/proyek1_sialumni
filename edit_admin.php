@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Data ALumni SI ALumni JTI</title>
-        <link href="css/alumni.css" rel="stylesheet" />
+        <title>Edit Data Admin SI ALumni JTI</title>
+        <link href="css/grafik.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
@@ -76,67 +76,89 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Data Alumni</h1>
+                        <h1 class="mt-4">Edit Data Admin</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Data Alumni</li>
+                            <li class="breadcrumb-item active">Edit Data Admin</li>
                         </ol>
-                        
-                    </div>
-                    <div class="container">
-                        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="" method= "POST">
-                        <div class="mb-3">
-                        <input type="Number" name="numberrow" class="form-control" id="exampleInputNumber" placeholder="jumlah baris ditampilkan">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                        </form>
-
-                        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="" method= "POST">
-                        <div class="mb-3">
-                        <input type="Text" name="numberrow" class="form-control" id="exampleInputText" placeholder="cari NIM/Nama/Prodi">
-                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                    </div>
-                        </form>
-
-                    <table class="table">
-                            <thead class="table-dark">
-                            <tr>
-                            <th width = 5%>No</th>
-                            <th width = 25%>Nama</th>
-                            <th width = 20%>Program Studi</th>
-                            <th width = 15%>Tahun Lulus</th>
-                            <th width = 15%>Asal</th>
-                            <th width = 20%>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            include "koneksi.php";
-                            $query = mysqli_query($conn,"SELECT * FROM alumni ORDER BY idAlumni DESC");
-                            ?>
-
-                            <?php if(mysqli_num_rows($query)>0){ ?>
-                                    <?php
-                                        $no = 1;
-                                        while($data = mysqli_fetch_array($query)){
-                                    ?>
-                                <tr>
-                                <td><?php echo $no ?></td>
-                                <td><?php echo $data["nama_al"]; ?></td>
-                                <td><?php echo $data["prodi"]; ?></td>
-                                <td><?php echo $data["tahun_lulus"]; ?></td>
-                                <td><?php echo $data["alamat"]; ?></td>
-                                <td>
-                                <button type="button" class="btn btn-primary">Edit</button>
-                                <button type="button" class="btn btn-danger" href='hapus_alumni.php?id=".$data['idAlumni']."'>Hapus</button>
-                                </td>
-                                </tr>
-                                <?php $no++; } ?>
-                                <?php } ?>
-                            </tbody>
-                    </table>
-
                     </div>
                 </main>
+                <div class="container">
+                <?php 
+                    include "koneksi.php";
+                    $id = $_GET['id'];
+                    $query_mysql = mysqli_query($conn, "SELECT * FROM admin WHERE idAdm='$id'");
+                    while($data = mysqli_fetch_array($query_mysql)){
+                    ?>
+                    <form action="">		
+                        <fieldset disabled>
+                        <div class="mb-3">
+                        <table boder="none" cellpadding="10">
+                            <tr>
+                                <td><label for="disabledTextInput" class="form-label">Username</label></td>
+                                <td><input type="text" id="disabledTextInput" class="form-control" placeholder="<?php echo $data["username_adm"]; ?>" style="width:200px;"></td>
+                                <td><label for="disabledTextInput" class="form-label">Alamat</label></td>
+                                <td><input type="text" id="disabledTextInput" class="form-control" placeholder="<?php echo $data["alamat"]; ?>" style="width:250px;"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="disabledTextInput" class="form-label">Name</label></td>
+                                <td><input type="text" id="disabledTextInput" class="form-control" placeholder="<?php echo $data["nama_adm"]; ?>" style="width:200px;"></td>
+                                <td><label for="disabledTextInput" class="form-label">No Handphone</label></td>
+                                <td><input type="text" id="disabledTextInput" class="form-control" placeholder="<?php echo $data["nohp_adm"]; ?>" style="width:200px;"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="disabledTextInput" class="form-label">Email</label></td>
+                                <td><input type="text" id="disabledTextInput" class="form-control" placeholder="<?php echo $data["email_adm"]; ?>" style="width:250px;"></td>    
+                            </tr>
+                        </table>
+                    </fieldset>
+                    </form>
+                    <?php } ?>
+                </div>
+                <?php 
+                    include "koneksi.php";
+                    $id = $_GET['id'];
+                    $query_mysql = mysqli_query($conn, "SELECT * FROM admin WHERE idAdm='$id'");
+                    while($data = mysqli_fetch_array($query_mysql)){
+                    ?>
+                <form action="update_admin.php" method="POST">
+                <div class="container" style=" box-shadow: 1px 1px 1px 1px;">
+                    <div class="text-center">
+                        <br/>
+                        <h4>EDIT DATA ADMIN</h4>
+                        <br/>
+                    </div>
+                    <table boder="none" cellpadding="10">
+                            <tr>
+                                <td><label  class="form-label">Username</label></td>
+                                <td><input type="text"  class="form-control" name= "username" value="<?php echo $data["username_adm"]; ?>" style="width:200px;"></td>
+                                <td><label  class="form-label">Alamat</label></td>
+                                <td><input type="text"  class="form-control" name="alamat" value="<?php echo $data["alamat"]; ?>" style="width:250px;"></td>
+                            </tr>
+                            <tr>
+                                <td><label  class="form-label">Name</label></td>
+                                <td><input type="text"  class="form-control" name="name" value="<?php echo $data["nama_adm"]; ?>" style="width:200px;"></td>
+                                <td><label  class="form-label">No Handphone</label></td>
+                                <td><input type="text"  class="form-control" name="nohp" value="<?php echo $data["nohp_adm"]; ?>" style="width:200px;"></td>
+                            </tr>
+                            <tr>
+                                <td><label class="form-label">Email</label></td>
+                                <td><input type="text"  class="form-control" name="email" value="<?php echo $data["email_adm"]; ?>" style="width:250px;"></td>   
+                                <td><label class="form-label">Password</label></td>
+                                <td><input type="password"  class="form-control" name="pass" value="<?php echo $data["password_adm"]; ?>" style="width:250px;"></td>   
+                            </tr>
+                            <tr><td><input type="hidden" name="id" value="<?php echo $data['idAdm'] ?>"></td></tr>
+                            <tr>
+                            <td>
+                            <button type="submit" class="btn btn-primary">Edit Data</button>
+                            </td>
+                            </tr>
+                        </table>
+                        
+                    </div>
+                </form>
+                <?php } ?>
+                
+                
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">

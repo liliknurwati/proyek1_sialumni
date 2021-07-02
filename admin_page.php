@@ -83,13 +83,12 @@
                         
                     </div>
                     <div class="container">
-                        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="" method= "POST">
-                        <div class="mb-3">
-                        <input type="Number" name="numberrow" class="form-control" id="exampleInputNumber" placeholder="jumlah baris ditampilkan">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="tambah_admin.php"><button type="submit" class="btn btn-primary">Tambah Data</button></a>
+                        
+                        <br><br>
                     </div>
                         </form>
-
+                    <div class="container">
                     <table class="table">
                             <thead class="table-dark">
                             <tr>
@@ -115,7 +114,8 @@
                                 <td><?php echo $data["nama_adm"]; ?></td>
                                 <td><?php echo $data["email_adm"]; ?></td>
                                 <td>
-                                <button type="button" class="btn btn-primary">Tampilkan lebih</button>
+                                <a href="edit_admin.php?id=<?php echo $data['idAdm']; ?>"><button type="button" class="btn btn-primary">edit</button></a>
+                                <a href="hapus_admin.php?id=<?php echo $data['idAdm']; ?>"><button type="button" class="btn btn-danger">hapus</button></a>
                                 </td>
                                 </tr>
                                 <?php $no++; } ?>

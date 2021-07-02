@@ -80,18 +80,24 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Review Alumni</li>
                         </ol>
-                        
                     </div>
+                    include "koneksi.php";
+                            $query = mysqli_query($conn,"SELECT * FROM review ORDER BY idReview DESC");
+                            ?>
 
+                            <?php if(mysqli_num_rows($query)>0){ ?>
+                                    <?php
+                                        while($data = mysqli_fetch_array($query)){
+                                    ?>
                     <div class="container">
                     <div class="card">
                         <h5 class="card-header">LILIK NURWATI, 2022</h5>
                         <div class="card-body">
                             <p class="card-text">Minta Tolong untuk memberikan password ke x Karena dia Lupa password</p>
-                            <a href="#" class="btn btn-primary">Beri Balasan</a>
                         </div>
 </div>
                     </div>
+                    <?php } ?>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
