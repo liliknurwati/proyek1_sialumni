@@ -77,7 +77,6 @@
                             <tr>
                             <th width = 5%>No</th>
                             <th width = 70%>Pertanyaan Survei Alumni</th>
-                            <th width = 20%>Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -92,15 +91,37 @@
                                         while($data = mysqli_fetch_array($query)){
                                     ?>
                             
-                                <tr>
                                 <td><?php echo $no ?></td>
                                 <td> <?php echo $data["pertanyaan"]; ?> </td>
-                                <td>
+                                <!-- <td>
                                 <button type="button" class="btn btn-primary">Tampilkan</button>
                                 </td>
+                                </tr> -->
+                                <tr>
+                                <td></td>
+                                <td> <input name="pilihan[<?php echo $data['id']?>]" type="radio" value="A"><?php echo $data['isi1'];?></td>
+                                </tr>
+                                <tr>
+                                <td></td>
+                                <td> <input name="pilihan[<?php echo $data['id']?>]" type="radio" value="B"><?php echo $data['isi2'];?></td>
+                                </tr>
+                                <tr>
+                                <td></td>
+                                <td> <input name="pilihan[<?php echo $data['id']?>]" type="radio" value="C"><?php echo $data['isi3'];?></td>
+                                </tr>
+                                <tr>
+                                <td></td>
+                                <td> <input name="pilihan[<?php echo $data['id']?>]" type="radio" value="D"><?php echo $data['isi4'];?></td>
                                 </tr>
                                 <?php $no++; } ?>
                                 <?php } ?>
+
+                                <tr>
+                                <td></td>
+                                <td>
+                                <input type="submit" name="submit" value="KIRIM" onclick="return confirm('Apakah Anda yakin dengan jawaban Anda?')">
+                                </td>
+                                </tr>
                             </tbody>
                     </table>
                 </div>
