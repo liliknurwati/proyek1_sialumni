@@ -74,7 +74,7 @@
                     </div>
                     <?php
                             include "koneksi.php";
-                            $query = mysqli_query($conn," SELECT d.*, a.* FROM review d JOIN alumni a ON d.idAlumni = a.idAlumni ORDER BY d.idAlumni DESC");
+                            $query = mysqli_query($conn," SELECT * FROM review ORDER BY tanggal DESC");
                             ?>
 
                             <?php if(mysqli_num_rows($query)>0){ ?>
@@ -83,9 +83,9 @@
                                     ?>
                     <div class="container">
                     <div class="card">
-                        <h5 class="card-header"><?php echo $data["nama_al"] .", " .$data["tahun_lulus"]; ?></h5>
+                        <h5 class="card-header"><?php echo $data["tanggal"] .", " .$data["time"]; ?></h5>
                         <div class="card-body">
-                            <p class="card-text"><?php echo $data["review"] ?></p>
+                            <p class="card-text"><?php echo $data["komentar"] ?></p>
                             
                         </div>
 </div>
