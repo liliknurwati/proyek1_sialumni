@@ -28,10 +28,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Activity Log</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.html">Logout</a>
+                    <a class="dropdown-item" href="index.html">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -66,48 +63,22 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-            <?php
-                            include "koneksi.php";
-                            $query = mysqli_query($conn,"SELECT a.*, j.*, t.* FROM jawaban j JOIN alumni a ON j.idAl = a.idAlumni JOIN t_pertanyaan t ON j.idPert = t.id WHERE j.idPert = 1 ORDER BY j.idPert");
-                            ?>
-                            <?php if(mysqli_num_rows($query)>0){ ?>
-                                    <?php
-                                        $no = 1;
-                                        while($data = mysqli_fetch_array($query)){
-                                    ?>
                 <main>
                     <div class="container-fluid">
                         <h1 class="mt-4">Hasil Survei</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Hasil Survei</li>
                         </ol>
-                        
                     </div>
 
                     <div class="container">
-                        <div class="input-group">
-                        <input class="form-control" type="text" placeholder="Cari Pertanyaan dengan nomor 1-" aria-label="Search" aria-describedby="basic-addon2" />
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                        </div>
-                         </div>
-                    <br>
-                    
-                        <div class="card">
-                            
-                        <div class="card-body">
-                            <p class="card-text"><?php echo $data["pertanyaan"]; ?></p>
-                        </div>
-                        <?php $no++; } ?>
-                                <?php } ?>
-                        </div>
-                        <br>
                         <table class="table">
                         <thead class="table-dark">
                             <tr>
                                 <th width = 5%>No. </th>
                                 <th width = 20%>Nama</th>
-                                <th width = 40%>Jawaban</th>
+                                <th width = 10%>Tahun Lulus</th>
+                                <th width = 20%>Program Studi</th>
                                 <th width = 20%>Action</th>
                             </tr>
                         </thead>
@@ -125,8 +96,9 @@
                             <tr>
                                 <td><?php echo $no ?></td>
                                 <td><?php echo $data['nama_al']; ?></td>
-                                <td><?php echo $data['jawaban']; ?></td>
-                                <td><a href="detail_jawaban.php?id=<?php echo $data['idAl']; ?>"><button type="button" class="btn btn-primary">lihat detail</button></a></td>
+                                <td><?php echo $data['tahun_lulus']; ?></td>
+                                <td><?php echo $data['prodi']; ?></td>
+                                <td><a href="detail_jawaban.php?id=<?php echo $data['idAl']; ?>"><button type="button" class="btn btn-primary">Lihat Detail Survei</button></a></td>
                             </tr>
                         </tbody>
                         </table>

@@ -1,0 +1,26 @@
+<?php
+// mengaktifkan session php
+session_start();
+
+// menghubungkan dengan koneksi
+include 'koneksi.php';
+
+// menangkap data yang dikirim dari form
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+// menyeleksi data admin dengan username dan password yang sesuai
+$data = mysqli_query($conn,"select * from admin where username_adm='$username' and password_adm='$password'");
+
+// menghitung jumlah data yang ditemukan
+$cek = mysqli_num_rows($data);
+
+if($cek > 0){
+	$_SESSION['idAlumni'] = $data_user['idAlumni'];
+	$_SESSION['username'] = $username_al;
+	$_SESSION['status'] = "login";
+	header("location:dashboard_admin.php");
+}else{
+	header("location:login_admin.php?pesan=gagal");
+}
+?>

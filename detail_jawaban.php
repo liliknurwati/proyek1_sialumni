@@ -28,10 +28,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Activity Log</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.html">Logout</a>
+                    <a class="dropdown-item" href="index.html">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -66,24 +63,32 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
+            <?php
+                            include "koneksi.php";
+                            $id = $_GET['id'];
+                            $query = mysqli_query($conn,"SELECT a.*, j.*, t.* FROM jawaban j JOIN alumni a ON j.idAl = a.idAlumni JOIN t_pertanyaan t ON j.idPert = t.id WHERE j.idAl = '$id' AND j.idPert = 1 ORDER BY j.idPert");
+                            ?>
+
+                            <?php if(mysqli_num_rows($query)>0){ ?>
+                                    <?php
+                                        $no = 1;
+                                        while($data = mysqli_fetch_array($query)){
+                                    ?>
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Hasil Survei</h1>
+                        <h1 class="mt-4">Hasil Survei <?php echo $data['nama_al']; ?></h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Hasil Survei</li>
+                            <li class="breadcrumb-item active">Hasil Survei <?php echo $data['nama_al']; ?></li>
                         </ol>
                         
                     </div>
-
-        
-                    
-                    
+                    <?php $no++; } ?>
+                                <?php } ?>
                         <div class="container">
                         <table class="table">
                         <thead class="table-dark">
                             <tr>
                                 <th width = 5%>No. </th>
-                                <th width = 20%>Nama</th>
                                 <th width = 55%>Pertanyaan</th>
                                 <th width = 20%>Jawaban</th>
                                 
@@ -103,9 +108,8 @@
                         <tbody>
                             <tr>
                                 <td width = 5%><?php echo $no ?></td>
-                                <td width = 20%><?php echo $data['nama_al']; ?></td>
-                                <td width = 45%><?php echo $data['pertanyaan']; ?></td>
-                                <td width = 30%><?php echo $data['jawaban']; ?></td>
+                                <td width = 55%><?php echo $data['pertanyaan']; ?></td>
+                                <td width = 20%><?php echo $data['jawaban']; ?></td>
                                 
                             </tr>
                             <?php $no++; } ?>
