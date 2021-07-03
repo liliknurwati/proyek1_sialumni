@@ -53,14 +53,6 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-poll-h"></i></div>
                                 Hasil Survei
                             </a>
-                            <a class="nav-link" href="grafik_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Grafik Survei
-                            </a>
-                            <a class="nav-link" href="survei_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
-                                Survei
-                            </a>
                             <a class="nav-link" href="admin_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users-cog"></i></div>
                                 Data Admin
@@ -83,20 +75,11 @@
                         
                     </div>
                     <div class="container">
-                        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="" method= "POST">
-                        <div class="mb-3">
-                        <input type="Number" name="numberrow" class="form-control" id="exampleInputNumber" placeholder="jumlah baris ditampilkan">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href=""><button type="submit" class="btn btn-primary">Tambah Data</button></a>
                     </div>
+                    <br>
                         </form>
-
-                        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="" method= "POST">
-                        <div class="mb-3">
-                        <input type="Text" name="numberrow" class="form-control" id="exampleInputText" placeholder="cari NIM/Nama/Prodi">
-                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                    </div>
-                        </form>
-
+                    <div class="container">
                     <table class="table">
                             <thead class="table-dark">
                             <tr>
@@ -134,6 +117,8 @@
                                 <?php } ?>
                             </tbody>
                     </table>
+                
+                    
 
                     </div>
                 </main>

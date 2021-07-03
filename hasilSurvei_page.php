@@ -53,14 +53,6 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-poll-h"></i></div>
                                 Hasil Survei
                             </a>
-                            <a class="nav-link" href="grafik_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Grafik Survei
-                            </a>
-                            <a class="nav-link" href="survei_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
-                                Survei
-                            </a>
                             <a class="nav-link" href="admin_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users-cog"></i></div>
                                 Data Admin
@@ -74,6 +66,15 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
+            <?php
+                            include "koneksi.php";
+                            $query = mysqli_query($conn,"SELECT a.*, j.*, t.* FROM jawaban j JOIN alumni a ON j.idAl = a.idAlumni JOIN t_pertanyaan t ON j.idPert = t.id WHERE j.idPert = 1 ORDER BY j.idPert");
+                            ?>
+                            <?php if(mysqli_num_rows($query)>0){ ?>
+                                    <?php
+                                        $no = 1;
+                                        while($data = mysqli_fetch_array($query)){
+                                    ?>
                 <main>
                     <div class="container-fluid">
                         <h1 class="mt-4">Hasil Survei</h1>
@@ -91,24 +92,16 @@
                         </div>
                          </div>
                     <br>
-                    <?php
-                            include "koneksi.php";
-                            $query = mysqli_query($conn,"SELECT * FROM t_pertanyaan WHERE id=1");
-                            ?>
-
-                            <?php if(mysqli_num_rows($query)>0){ ?>
-                                    <?php
-                                        $no = 1;
-                                        while($data = mysqli_fetch_array($query)){
-                                    ?>
+                    
                         <div class="card">
                             
-                        <h5 class="card-header">Pertanyaan No. 1</h5>
                         <div class="card-body">
                             <p class="card-text"><?php echo $data["pertanyaan"]; ?></p>
                         </div>
+                        <?php $no++; } ?>
+                                <?php } ?>
                         </div>
-                        <br><br>
+                        <br>
                         <table class="table">
                         <thead class="table-dark">
                             <tr>
@@ -119,11 +112,21 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php
+                            include "koneksi.php";
+                            $query = mysqli_query($conn,"SELECT a.*, j.*, t.* FROM jawaban j JOIN alumni a ON j.idAl = a.idAlumni JOIN t_pertanyaan t ON j.idPert = t.id WHERE j.idPert = 1 ORDER BY j.idPert");
+                            ?>
+
+                            <?php if(mysqli_num_rows($query)>0){ ?>
+                                    <?php
+                                        $no = 1;
+                                        while($data = mysqli_fetch_array($query)){
+                                    ?>
                             <tr>
                                 <td><?php echo $no ?></td>
-                                <td>LILIK NURWATI</td>
-                                <td>Engineer</td>
-                                <td><button type="button" class="btn btn-primary">lihat detail</button></td>
+                                <td><?php echo $data['nama_al']; ?></td>
+                                <td><?php echo $data['jawaban']; ?></td>
+                                <td><a href="detail_jawaban.php?id=<?php echo $data['idAl']; ?>"><button type="button" class="btn btn-primary">lihat detail</button></a></td>
                             </tr>
                         </tbody>
                         </table>

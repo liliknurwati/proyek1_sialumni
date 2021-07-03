@@ -53,14 +53,6 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-poll-h"></i></div>
                                 Hasil Survei
                             </a>
-                            <a class="nav-link" href="grafik_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Grafik Survei
-                            </a>
-                            <a class="nav-link" href="survei_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
-                                Survei
-                            </a>
                             <a class="nav-link" href="admin_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users-cog"></i></div>
                                 Data Admin
@@ -94,7 +86,7 @@
                             <tr>
                             <th width = 15%>No</th>
                             <th width = 35%>Nama</th>
-                            <th width = 30%>Nama</th>
+                            <th width = 30%>Email</th>
                             <th width = 20%>Action</th>
                             </tr>
                             </thead>

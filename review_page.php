@@ -53,14 +53,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-poll-h"></i></div>
                                 Hasil Survei
                             </a>
-                            <a class="nav-link" href="grafik_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Grafik Survei
-                            </a>
-                            <a class="nav-link" href="survei_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
-                                Survei
-                            </a>
+                    
                             <a class="nav-link" href="admin_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users-cog"></i></div>
                                 Data Admin
@@ -80,9 +73,11 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Review Alumni</li>
                         </ol>
+                        
                     </div>
-                    include "koneksi.php";
-                            $query = mysqli_query($conn,"SELECT * FROM review ORDER BY idReview DESC");
+                    <?php
+                            include "koneksi.php";
+                            $query = mysqli_query($conn," SELECT d.*, a.* FROM review d JOIN alumni a ON d.idAlumni = a.idAlumni ORDER BY d.idAlumni DESC");
                             ?>
 
                             <?php if(mysqli_num_rows($query)>0){ ?>
@@ -91,13 +86,14 @@
                                     ?>
                     <div class="container">
                     <div class="card">
-                        <h5 class="card-header">LILIK NURWATI, 2022</h5>
+                        <h5 class="card-header"><?php echo $data["nama_al"] .", " .$data["tahun_lulus"]; ?></h5>
                         <div class="card-body">
-                            <p class="card-text">Minta Tolong untuk memberikan password ke x Karena dia Lupa password</p>
+                            <p class="card-text"><?php echo $data["review"] ?></p>
+                            
                         </div>
 </div>
                     </div>
-                    <?php } ?>
+                    <?php }} ?>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">

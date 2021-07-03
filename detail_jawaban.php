@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Grafik Data SI ALumni JTI</title>
-        <link href="css/grafik.css" rel="stylesheet" />
+        <title>Hasil Survei SI ALumni JTI</title>
+        <link href="css/hasilSurvei.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
@@ -53,14 +53,6 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-poll-h"></i></div>
                                 Hasil Survei
                             </a>
-                            <a class="nav-link" href="grafik_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Grafik Survei
-                            </a>
-                            <a class="nav-link" href="survei_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
-                                Survei
-                            </a>
                             <a class="nav-link" href="admin_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users-cog"></i></div>
                                 Data Admin
@@ -76,12 +68,52 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Grafik</h1>
+                        <h1 class="mt-4">Hasil Survei</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Grafik Data SI ALumni</li>
+                            <li class="breadcrumb-item active">Hasil Survei</li>
                         </ol>
                         
                     </div>
+
+        
+                    
+                    
+                        <div class="container">
+                        <table class="table">
+                        <thead class="table-dark">
+                            <tr>
+                                <th width = 5%>No. </th>
+                                <th width = 20%>Nama</th>
+                                <th width = 55%>Pertanyaan</th>
+                                <th width = 20%>Jawaban</th>
+                                
+                            </tr>
+                        </thead>
+                        <?php
+                            include "koneksi.php";
+                            $id = $_GET['id'];
+                            $query = mysqli_query($conn,"SELECT a.*, j.*, t.* FROM jawaban j JOIN alumni a ON j.idAl = a.idAlumni JOIN t_pertanyaan t ON j.idPert = t.id WHERE j.idAl = '$id' ORDER BY j.idPert");
+                            ?>
+
+                            <?php if(mysqli_num_rows($query)>0){ ?>
+                                    <?php
+                                        $no = 1;
+                                        while($data = mysqli_fetch_array($query)){
+                                    ?>
+                        <tbody>
+                            <tr>
+                                <td width = 5%><?php echo $no ?></td>
+                                <td width = 20%><?php echo $data['nama_al']; ?></td>
+                                <td width = 45%><?php echo $data['pertanyaan']; ?></td>
+                                <td width = 30%><?php echo $data['jawaban']; ?></td>
+                                
+                            </tr>
+                            <?php $no++; } ?>
+                                <?php } ?>
+                        </tbody>
+                        </table>
+                        </div>
+                    
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
