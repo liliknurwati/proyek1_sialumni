@@ -28,10 +28,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Activity Log</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.html">Logout</a>
+                    <a class="dropdown-item" href="index.html">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -53,14 +50,6 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-poll-h"></i></div>
                                 Hasil Survei
                             </a>
-                            <a class="nav-link" href="grafik_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Grafik Survei
-                            </a>
-                            <a class="nav-link" href="survei_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
-                                Survei
-                            </a>
                             <a class="nav-link" href="admin_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users-cog"></i></div>
                                 Data Admin
@@ -80,20 +69,23 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Hasil Survei</li>
                         </ol>
-                        
                     </div>
 
                     <div class="container">
-                        <div class="input-group">
-                        <input class="form-control" type="text" placeholder="Cari Pertanyaan dengan nomor 1-" aria-label="Search" aria-describedby="basic-addon2" />
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                        </div>
-                         </div>
-                    <br>
-                    <?php
+                        <table class="table">
+                        <thead class="table-dark">
+                            <tr>
+                                <th width = 5%>No. </th>
+                                <th width = 20%>Nama</th>
+                                <th width = 10%>Tahun Lulus</th>
+                                <th width = 20%>Program Studi</th>
+                                <th width = 20%>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php
                             include "koneksi.php";
-                            $query = mysqli_query($conn,"SELECT * FROM t_pertanyaan WHERE id=1");
+                            $query = mysqli_query($conn,"SELECT a.*, j.*, t.* FROM jawaban j JOIN alumni a ON j.idAl = a.idAlumni JOIN t_pertanyaan t ON j.idPert = t.id WHERE j.idPert = 1 ORDER BY j.idPert");
                             ?>
 
                             <?php if(mysqli_num_rows($query)>0){ ?>
@@ -101,29 +93,12 @@
                                         $no = 1;
                                         while($data = mysqli_fetch_array($query)){
                                     ?>
-                        <div class="card">
-                            
-                        <h5 class="card-header">Pertanyaan No. 1</h5>
-                        <div class="card-body">
-                            <p class="card-text"><?php echo $data["pertanyaan"]; ?></p>
-                        </div>
-                        </div>
-                        <br><br>
-                        <table class="table">
-                        <thead class="table-dark">
-                            <tr>
-                                <th width = 5%>No. </th>
-                                <th width = 20%>Nama</th>
-                                <th width = 40%>Jawaban</th>
-                                <th width = 20%>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
                             <tr>
                                 <td><?php echo $no ?></td>
-                                <td>LILIK NURWATI</td>
-                                <td>Engineer</td>
-                                <td><button type="button" class="btn btn-primary">lihat detail</button></td>
+                                <td><?php echo $data['nama_al']; ?></td>
+                                <td><?php echo $data['tahun_lulus']; ?></td>
+                                <td><?php echo $data['prodi']; ?></td>
+                                <td><a href="detail_jawaban.php?id=<?php echo $data['idAl']; ?>"><button type="button" class="btn btn-primary">Lihat Detail Survei</button></a></td>
                             </tr>
                         </tbody>
                         </table>

@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Data ALumni SI ALumni JTI</title>
-        <link href="css/alumni.css" rel="stylesheet" />
+        <title>Data Admin SI ALumni JTI</title>
+        <link href="css/admin.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
@@ -28,10 +28,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Activity Log</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.html">Logout</a>
+                        <a class="dropdown-item" href="index.html">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -53,14 +50,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-poll-h"></i></div>
                                 Hasil Survei
                             </a>
-                            <a class="nav-link" href="grafik_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Grafik Survei
-                            </a>
-                            <a class="nav-link" href="survei_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
-                                Survei
-                            </a>
+                            
                             <a class="nav-link" href="admin_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users-cog"></i></div>
                                 Data Admin
@@ -80,31 +70,21 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Data Alumni</li>
                         </ol>
-                        
+
                     </div>
                     <div class="container">
-                        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="" method= "POST">
-                        <div class="mb-3">
-                        <input type="Number" name="numberrow" class="form-control" id="exampleInputNumber" placeholder="jumlah baris ditampilkan">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="tambah_alumni.php"><button type="submit" class="btn btn-primary">Tambah Data</button></a>
+
+                        <br><br>
                     </div>
                         </form>
-
-                        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="" method= "POST">
-                        <div class="mb-3">
-                        <input type="Text" name="numberrow" class="form-control" id="exampleInputText" placeholder="cari NIM/Nama/Prodi">
-                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                    </div>
-                        </form>
-
+                    <div class="container">
                     <table class="table">
                             <thead class="table-dark">
                             <tr>
-                            <th width = 5%>No</th>
-                            <th width = 25%>Nama</th>
-                            <th width = 20%>Program Studi</th>
-                            <th width = 15%>Tahun Lulus</th>
-                            <th width = 15%>Asal</th>
+                            <th width = 15%>No</th>
+                            <th width = 35%>Nama</th>
+                            <th width = 30%>Username</th>
                             <th width = 20%>Action</th>
                             </tr>
                             </thead>
@@ -122,12 +102,10 @@
                                 <tr>
                                 <td><?php echo $no ?></td>
                                 <td><?php echo $data["nama_al"]; ?></td>
-                                <td><?php echo $data["prodi"]; ?></td>
-                                <td><?php echo $data["tahun_lulus"]; ?></td>
-                                <td><?php echo $data["alamat"]; ?></td>
+                                <td><?php echo $data["username_al"]; ?></td>
                                 <td>
-                                <button type="button" class="btn btn-primary">Edit</button>
-                                <button type="button" class="btn btn-danger">Hapus</button>
+                                <a href="edit_alumni.php?id=<?php echo $data['idAlumni']; ?>"><button type="button" class="btn btn-primary">edit</button></a>
+                                <a href="hapus_alumni.php?id=<?php echo $data['idAlumni']; ?>"><button type="button" class="btn btn-danger">hapus</button></a>
                                 </td>
                                 </tr>
                                 <?php $no++; } ?>

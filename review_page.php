@@ -28,10 +28,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Activity Log</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.html">Logout</a>
+                    <a class="dropdown-item" href="index.html">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -53,14 +50,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-poll-h"></i></div>
                                 Hasil Survei
                             </a>
-                            <a class="nav-link" href="grafik_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Grafik Survei
-                            </a>
-                            <a class="nav-link" href="survei_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
-                                Survei
-                            </a>
+                    
                             <a class="nav-link" href="admin_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users-cog"></i></div>
                                 Data Admin
@@ -82,16 +72,25 @@
                         </ol>
                         
                     </div>
+                    <?php
+                            include "koneksi.php";
+                            $query = mysqli_query($conn," SELECT * FROM review ORDER BY tanggal DESC");
+                            ?>
 
+                            <?php if(mysqli_num_rows($query)>0){ ?>
+                                    <?php
+                                        while($data = mysqli_fetch_array($query)){
+                                    ?>
                     <div class="container">
                     <div class="card">
-                        <h5 class="card-header">LILIK NURWATI, 2022</h5>
+                        <h5 class="card-header"><?php echo $data["tanggal"] .", " .$data["time"]; ?></h5>
                         <div class="card-body">
-                            <p class="card-text">Minta Tolong untuk memberikan password ke x Karena dia Lupa password</p>
-                            <a href="#" class="btn btn-primary">Beri Balasan</a>
+                            <p class="card-text"><?php echo $data["komentar"] ?></p>
+                            
                         </div>
 </div>
                     </div>
+                    <?php }} ?>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">

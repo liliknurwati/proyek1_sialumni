@@ -28,10 +28,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Activity Log</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.html">Logout</a>
+                        <a class="dropdown-item" href="index.html">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -52,14 +49,6 @@
                             <a class="nav-link" href="hasilSurvei_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-poll-h"></i></div>
                                 Hasil Survei
-                            </a>
-                            <a class="nav-link" href="grafik_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Grafik Survei
-                            </a>
-                            <a class="nav-link" href="survei_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
-                                Survei
                             </a>
                             <a class="nav-link" href="admin_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users-cog"></i></div>
@@ -83,19 +72,18 @@
                         
                     </div>
                     <div class="container">
-                        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="" method= "POST">
-                        <div class="mb-3">
-                        <input type="Number" name="numberrow" class="form-control" id="exampleInputNumber" placeholder="jumlah baris ditampilkan">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="tambah_admin.php"><button type="submit" class="btn btn-primary">Tambah Data</button></a>
+                        
+                        <br><br>
                     </div>
                         </form>
-
+                    <div class="container">
                     <table class="table">
                             <thead class="table-dark">
                             <tr>
                             <th width = 15%>No</th>
                             <th width = 35%>Nama</th>
-                            <th width = 30%>Nama</th>
+                            <th width = 30%>Email</th>
                             <th width = 20%>Action</th>
                             </tr>
                             </thead>
@@ -115,7 +103,8 @@
                                 <td><?php echo $data["nama_adm"]; ?></td>
                                 <td><?php echo $data["email_adm"]; ?></td>
                                 <td>
-                                <button type="button" class="btn btn-primary">Tampilkan lebih</button>
+                                <a href="edit_admin.php?id=<?php echo $data['idAdm']; ?>"><button type="button" class="btn btn-primary">edit</button></a>
+                                <a href="hapus_admin.php?id=<?php echo $data['idAdm']; ?>"><button type="button" class="btn btn-danger">hapus</button></a>
                                 </td>
                                 </tr>
                                 <?php $no++; } ?>
