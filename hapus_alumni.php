@@ -1,12 +1,7 @@
 <?php
-include "koneksi.php";
-$id= $_GET['idAlumni'];
+include 'koneksi.php';
+$id = $_GET['id'];
+mysqli_query($conn,"DELETE FROM alumni WHERE idAlumni='$id'");
 
-$sql = $pdo->prepare("DELETE FROM alumni WHERE idAlumni=:idAlumni");
-$sql->bindParam(':idAlumni', $id);
-$execute = $sql->execute();
-if(execute){
-    header("location:alumni_page.php");
-}
-
+header("location:alumni_page.php?pesan=hapus");
 ?>

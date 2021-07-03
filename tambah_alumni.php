@@ -6,14 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Data Admin SI ALumni JTI</title>
-        <link href="css/admin.css" rel="stylesheet" />
+        <title>Tambah Data Admin SI ALumni JTI</title>
+        <link href="css/grafik.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">ADMIN SI ALUMNI</a>
+            <a class="navbar-brand" href="index.html">TAMBAH ADMIN SI ALUMNI</a>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div class="input-group">
@@ -53,14 +53,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-poll-h"></i></div>
                                 Hasil Survei
                             </a>
-                            <a class="nav-link" href="grafik_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Grafik Survei
-                            </a>
-                            <a class="nav-link" href="survei_page.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
-                                Survei
-                            </a>
+
                             <a class="nav-link" href="admin_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users-cog"></i></div>
                                 Data Admin
@@ -76,55 +69,71 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Data Alumni</h1>
+                        <h1 class="mt-4">Tambah Data Alumni</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Data Alumni</li>
+                            <li class="breadcrumb-item active">Tambah Data Alumni SI ALumni</li>
                         </ol>
 
                     </div>
-                    <div class="container">
-                    <a href="tambah_alumni.php"><button type="submit" class="btn btn-primary">Tambah Data</button></a>
-
-                        <br><br>
-                    </div>
-                        </form>
-                    <div class="container">
-                    <table class="table">
-                            <thead class="table-dark">
-                            <tr>
-                            <th width = 15%>No</th>
-                            <th width = 35%>Nama</th>
-                            <th width = 30%>Username</th>
-                            <th width = 20%>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            include "koneksi.php";
-                            $query = mysqli_query($conn,"SELECT * FROM alumni ORDER BY idAlumni DESC");
-                            ?>
-
-                            <?php if(mysqli_num_rows($query)>0){ ?>
-                                    <?php
-                                        $no = 1;
-                                        while($data = mysqli_fetch_array($query)){
-                                    ?>
-                                <tr>
-                                <td><?php echo $no ?></td>
-                                <td><?php echo $data["nama_al"]; ?></td>
-                                <td><?php echo $data["username_al"]; ?></td>
-                                <td>
-                                <a href="edit_alumni.php?id=<?php echo $data['idAlumni']; ?>"><button type="button" class="btn btn-primary">edit</button></a>
-                                <a href="hapus_alumni.php?id=<?php echo $data['idAlumni']; ?>"><button type="button" class="btn btn-danger">hapus</button></a>
-                                </td>
-                                </tr>
-                                <?php $no++; } ?>
-                                <?php } ?>
-                            </tbody>
-                    </table>
-
-                    </div>
                 </main>
+                <div class="container">
+                <form action="input_alumni.php" method="POST">
+                <div class="container" style=" box-shadow: 1px 1px 1px 1px;">
+                    <div class="text-center">
+                        <br/>
+                        <h4>TAMBAH DATA ALUMNI</h4>
+                        <br/>
+                    </div>
+                    <table boder="none" cellpadding="10">
+                            <tr>
+                                <td><label  class="form-label">Username</label></td>
+                                <td><input type="text"  class="form-control" name= "username" style="width:250px;"></td>
+                                <td><label  class="form-label">NIK</label></td>
+                                <td><input type="text"  class="form-control" name="nik"  style="width:250px;"></td>
+                            </tr>
+                            <tr>
+                                <td><label  class="form-label">Name</label></td>
+                                <td><input type="text"  class="form-control" name="name"  style="width:250px;"></td>
+                                <td><label  class="form-label">No Handphone</label></td>
+                                <td><input type="text"  class="form-control" name="nohp"  style="width:250px;"></td>
+                            </tr>
+                            <tr>
+                                <td><label class="form-label">Agama</label></td>
+                                <td><input type="text"  class="form-control" name="agama" style="width:250px;"></td>
+                                <td><label class="form-label">Password</label></td>
+                                <td><input type="password"  class="form-control" name="pass" style="width:250px;"></td>
+                            </tr>
+                            <tr>
+                                <td><label  class="form-label">Tempat Lahir</label></td>
+                                <td><input type="text"  class="form-control" name= "tempatlahir" style="width:250px;"></td>
+                                <td><label  class="form-label">Tanggal Lahir</label></td>
+                                <td><input type="text"  class="form-control" name="tanggallahir"  style="width:250px;"></td>
+                            </tr>
+                            <tr>
+                                <td><label  class="form-label">Prodi</label></td>
+                                <td><input type="text"  class="form-control" name= "prodi" style="width:250px;"></td>
+                                <td><label  class="form-label">Tahun Lulus</label></td>
+                                <td><input type="text"  class="form-control" name="tahunlulus"  style="width:250px;"></td>
+                            </tr>
+                            <tr>
+                                <td><label  class="form-label">Alamat</label></td>
+                                <td><input type="text"  class="form-control" name= "alamat" style="width:250px;"></td>
+                                <td><label  class="form-label">Jenis Kelamin</label></td>
+                                <td><input type="text"  class="form-control" name="jk"  style="width:250px;"></td>
+                            </tr>
+                            <td><label  class="form-label">Profesi</label></td>
+                                <td><input type="text"  class="form-control" name="profesi"  style="width:250px;"></td>
+                            </tr>
+                            <tr>
+                            <td>
+                            <button type="submit" class="btn btn-primary">Tambah Data</button>
+                            </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </form>
+                </div>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
