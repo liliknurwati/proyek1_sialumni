@@ -62,25 +62,36 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-                <main>
+            <main>
                     <div class="container-fluid">
                         <h1 class="mt-4">Review Alumni</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Review Alumni</li>
                         </ol>
-                        
                     </div>
+                    <form id="form1" name="form1" method="post" action="review.php">
                     <div class="container">
                     <div class="card">
                         <h5 class="card-header">REVIEW</h5>
                         <div class="card-body">
-                        <div class="mb-3">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Tuliskan Komentarmu"></textarea>
+                    <div class="mb-3">
+                            <textarea name="komentar" class="form-control" id="komentar" rows="3" placeholder="Tuliskan Komentarmu"></textarea>
                         </div>
                             <button type="submit" class="btn btn-primary" style = "float: right">Submit</button>
-                        </div>
-</div>
+                            </div>
                     </div>
+                    </div>
+                    </form>
+                <?php
+                //konfigurasi koneksi
+                include "koneksi.php";
+                //inisialisasi tanggal
+                $tanggal = date ("Ymd");
+                //inisialisasi waktu
+                $time = date ("H:i:s");
+                //query untuk menambah data ke dalam tabel
+                $query_mysql = mysqli_query($conn, "INSERT INTO review(komentar, tanggal, time) values('$_POST[komentar]','$tanggal','$time')");
+                ?>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
@@ -89,8 +100,6 @@
                         </div>
                     </div>
                 </footer>
-            </div>
-        </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>

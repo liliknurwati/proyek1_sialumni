@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Data Admin SI ALumni JTI</title>
+        <title>Data Alumni SI ALumni JTI</title>
         <link href="custom/css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
@@ -76,47 +76,69 @@
                             <p class="card-text">DATA ALUMNI</p>
                     </div>
                         </form>
+                        <div class="container">
+                            <?php
+                            include "koneksi.php";
+                            $query = mysqli_query($conn,"SELECT * FROM alumni where idAlumni='1'");
+                            ?>
+
+                            <?php if(mysqli_num_rows($query)>0){ ?>
+                                    <?php
+                                        $no = 1;
+                                        while($data = mysqli_fetch_array($query)){
+                                    ?>
                     <table border=5 width=50% align=”center”>
                      <tr>
                      <td bgcolor=grey colspan=”2″ align=”center”><font color=white>BIODATA</td>
                     </tr>
                     <tr>
                     <td>Nama</td>
-                    <td>Salma Kirana S</td>
+                    <td><?php echo $data["nama_al"]; ?></td>
                     </tr>
                     <tr>
                     <td>NIK</td>
-                    <td>Metu kono belok kiri lurus wae</td>            
+                    <td><?php echo $data["nik_al"]; ?></td>            
                     </tr>
                     <tr>
-                    <td>Tempat, tanggal lahir</td>
-                    <td>08– —- —-</td>
+                    <td>Tempat lahir</td>
+                    <td><?php echo $data["tempat_lahir"]; ?></td>
+                    </tr>
+                    <tr>
+                    <td>Tanggal lahir</td>
+                    <td><?php echo $data["tgl_lahir"]; ?></td>
                     </tr>
                     <tr>
                     <td>Agama</td>
-                    <td>iya</td>
+                    <td><?php echo $data["agama"]; ?></td>
                     </tr>
                     <tr>
                     <td>No. Hp</td>
-                    <td>iya</td>
+                    <td><?php echo $data["agama"]; ?></td>
                     </tr>
                     <tr>
                     <td>Prodi</td>
-                    <td>iya</td>
+                    <td><?php echo $data["prodi"]; ?></td>
                     </tr>
                     <tr>
                     <td>Tahun lulus</td>
-                    <td>iya</td>
+                    <td><?php echo $data["tahun_lulus"]; ?></td>
                     </tr>
                     <tr>
                     <td>Alamat</td>
-                    <td>iya</td>
+                    <td><?php echo $data["alamat"]; ?></td>
                     </tr>
                     <tr>
                     <td>Jenis Kelamin</td>
-                    <td>iya</td>
+                    <td><?php echo $data["jk"]; ?></td>
                     </tr>
+                    <tr>
+                    <td>Profesi</td>
+                    <td><?php echo $data["profesi"]; ?></td>
+                    </tr>
+                    <?php $no++; } ?>
+                    <?php } ?>
                     </table>
+
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
